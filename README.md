@@ -88,14 +88,6 @@ ng build
 
 ---
 
-## 🤝 Contributing
-1. Fork the repository
-2. Create a new branch
-3. Add your changes
-4. Submit a Pull Request
-
----
-
 ## 👨‍💻 Developer
 **Name:** Yazan Man Aldeen    
 **GitHub:** [github.com/yazan-manaldeen](https://github.com/yazan-manaldeen)
@@ -191,14 +183,6 @@ src/
 ```bash
 ng build
 ```
-
----
-
-## 🤝 Beitrag leisten
-1. Repository forken
-2. Einen neuen Branch erstellen
-3. Änderungen hinzufügen
-4. Pull Request senden
 
 ---
 
