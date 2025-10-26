@@ -13,6 +13,7 @@ export class AppComponent {
     {name: "Filme", path: "films"},
     {name: "Charaktere", path: "characters"},
     {name: "Planeten", path: "planets"},
-    {name: "Fahrzeuge", path: "vehicles"}
+    {name: "Fahrzeuge", path: "vehicles"},
+    {name: "Raumschiffe", path: "starships"}
   ];
 }

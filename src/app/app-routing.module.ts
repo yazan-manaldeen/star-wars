@@ -9,6 +9,8 @@ import {PlanetsComponent} from "@app/components/planets/planets/planets.componen
 import {PlanetDetailsComponent} from "@app/components/planets/planet-details/planet-details.component";
 import {VehiclesComponent} from "@app/components/vehicles/vehicles/vehicles.component";
 import {VehicleDetailsComponent} from "@app/components/vehicles/vehicle-details/vehicle-details.component";
+import {StarshipsComponent} from "@app/components/starships/starships/starships.component";
+import {StarshipDetailsComponent} from "@app/components/starships/starship-details/starship-details.component";
 
 const routes: Routes = [
   {
@@ -55,6 +57,16 @@ const routes: Routes = [
     path: 'vehicle-details/:vehicleId',
     component: VehicleDetailsComponent,
     title: 'Fahrzeugdetails'
+  },
+  {
+    path: 'starships',
+    component: StarshipsComponent,
+    title: 'Raumschiffe'
+  },
+  {
+    path: 'starship-details/:starshipId',
+    component: StarshipDetailsComponent,
+    title: 'Raumschiffsdetails'
   },
 
 

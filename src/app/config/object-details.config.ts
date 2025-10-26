@@ -2,6 +2,7 @@ import {AddPlanetComponent} from "@app/components/dialogs/add-planet/add-planet.
 import {AddFilmComponent} from "@app/components/dialogs/add-film/add-film.component";
 import {AddCharacterComponent} from "@app/components/dialogs/add-character/add-character.component";
 import {AddVehicleComponent} from "@app/components/dialogs/add-vehicle/add-vehicle.component";
+import {AddStarshipComponent} from "@app/components/dialogs/add-starship/add-starship.component";
 
 export interface Relation {
   title: string;
@@ -28,6 +29,7 @@ export interface AppObjectDetailsConfig {
   character: ObjectDetailsConfig;
   planet: ObjectDetailsConfig;
   vehicle: ObjectDetailsConfig;
+  starship: ObjectDetailsConfig;
 }
 
 const filmRelation = {
@@ -65,7 +67,9 @@ const vehiclesRelation = {
 const starshipsRelation = {
   title: 'Raumschiffe:',
   dataPath: 'starships',
-  displayProp: 'name'
+  routerLink: '/starship-details/',
+  displayProp: 'name',
+  component: AddStarshipComponent
 };
 
 export const objectDetailsConfig: AppObjectDetailsConfig = {
@@ -136,7 +140,35 @@ export const objectDetailsConfig: AppObjectDetailsConfig = {
       {label: 'Konsumgüter:', propName: 'consumables'},
     ],
     imgFolder: 'thumbnails',
-    relations: [filmRelation,
+    relations: [
+      filmRelation,
+      {
+        ...characterRelation,
+        title: 'Piloten:',
+        dataPath: 'pilots'
+      },
+    ]
+  },
+  starship: {
+    title: 'Raumschiffsdetails',
+    firstTitleProp: 'name',
+    displayProps: [
+      {label: 'Modell:', propName: 'model'},
+      {label: 'Raumschiffsklasse:', propName: 'starship_class'},
+      {label: 'Produzenten:', propName: 'manufacturer'},
+      {label: 'Kosten in Credits:', propName: 'cost_in_credits'},
+      {label: 'Länge:', propName: 'length', suffix: 'm'},
+      {label: 'Crew:', propName: 'crew', suffix: 'Mann'},
+      {label: 'Passagiere:', propName: 'passengers', suffix: 'Mann'},
+      {label: 'Maximale atmosphärische Geschwindigkeit:', propName: 'max_atmosphering_speed'},
+      {label: 'Hyperantriebsbewertung:', propName: 'hyperdrive_rating'},
+      {label: 'MGLT:', propName: 'MGLT'},
+      {label: 'Ladekapazität:', propName: 'cargo_capacity', suffix: 'Kg'},
+      {label: 'Konsumgüter:', propName: 'consumables'}
+    ],
+    imgFolder: 'thumbnails',
+    relations: [
+      filmRelation,
       {
         ...characterRelation,
         title: 'Piloten:',

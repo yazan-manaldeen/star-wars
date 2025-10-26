@@ -1,0 +1,114 @@
+<div class="w-md max-sm:max-w-[300px] max-h-[90vh] p-6">
+  <div class="flex items-center justify-center">
+    <span class="text-base font-bold">Vehicle hinzufügen</span>
+  </div>
+  <div class="my-8">
+    <form (ngSubmit)="formGroup.valid && onSubmit(formGroup.value)"
+          *ngIf="formGroup"
+          [formGroup]="formGroup">
+
+      <mat-form-field class="w-full">
+        <mat-label>Modell</mat-label>
+        <input formControlName="model" matInput placeholder="Modell eingeben">
+        <mat-error *ngIf="formGroup.get('model')?.hasError('required')">
+          Modell is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
+        <mat-label>Raumschiffsklasse</mat-label>
+        <input formControlName="starship_class" matInput placeholder="Raumschiffsklasse eingeben">
+        <mat-error *ngIf="formGroup.get('starship_class')?.hasError('required')">
+          Raumschiffsklasse is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
+        <mat-label>Produzenten</mat-label>
+        <input formControlName="manufacturer" matInput placeholder="Namen mit Semikolon trennen">
+        <mat-error *ngIf="formGroup.get('manufacturer')?.hasError('required')">
+          Produzenten is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="sm:w-[50%] w-full">
+        <mat-label>Länge</mat-label>
+        <input formControlName="length" matInput placeholder="Länge eingeben" type="number">
+        <mat-error *ngIf="formGroup.get('length')?.hasError('required')">
+          Länge is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="sm:w-[50%] w-full">
+        <mat-label>Kosten in Credits</mat-label>
+        <input formControlName="cost_in_credits" matInput placeholder="Kosten in Credits">
+        <mat-error *ngIf="formGroup.get('cost_in_credits')?.hasError('required')">
+          Kosten in Credits is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="sm:w-[50%] w-full">
+        <mat-label>Crew</mat-label>
+        <input formControlName="crew" matInput placeholder="Crew eingeben" type="number">
+        <mat-error *ngIf="formGroup.get('crew')?.hasError('required')">
+          Crew is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="sm:w-[50%] w-full">
+        <mat-label>Passagiere</mat-label>
+        <input formControlName="passengers" matInput placeholder="Passagiere eingeben" type="number">
+        <mat-error *ngIf="formGroup.get('passengers')?.hasError('required')">
+          Passagiere is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="sm:w-[50%] w-full">
+        <mat-label>Hyperantriebsbewertung</mat-label>
+        <input formControlName="hyperdrive_rating" matInput placeholder="Hyperantriebsbewertung">
+        <mat-error *ngIf="formGroup.get('hyperdrive_rating')?.hasError('required')">
+          Hyperantriebsbewertung is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="sm:w-[50%] w-full">
+        <mat-label>MGLT</mat-label>
+        <input formControlName="MGLT" matInput placeholder="MGLT">
+        <mat-error *ngIf="formGroup.get('MGLT')?.hasError('required')">
+          MGLT is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="sm:w-[50%] w-full">
+        <mat-label>Ladekapazität</mat-label>
+        <input formControlName="cargo_capacity" matInput placeholder="Ladekapazität eingeben" type="number">
+        <mat-error *ngIf="formGroup.get('cargo_capacity')?.hasError('required')">
+          Ladekapazität is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="sm:w-[50%] w-full">
+        <mat-label>Konsumgüter</mat-label>
+        <input formControlName="consumables" matInput placeholder="Monat" type="number">
+        <mat-error *ngIf="formGroup.get('consumables')?.hasError('required')">
+          Konsumgüter is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
+        <mat-label>Maximale atmosphärische Geschwindigkeit</mat-label>
+        <input formControlName="max_atmosphering_speed" matInput
+               placeholder="Maximale atmosphärische Geschwindigkeit eingeben">
+        <mat-error *ngIf="formGroup.get('max_atmosphering_speed')?.hasError('required')">
+          Maximale atmosphärische Geschwindigkeit is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <div class="my-8 float-right float-bottom">
+        <button (click)="closeDialog()" class="mr-2" mat-raised-button>Abbrechen</button>
+        <button class="mr-2" color="primary" mat-raised-button type="submit">Hinzufügen</button>
+      </div>
+
+    </form>
+  </div>
+</div>

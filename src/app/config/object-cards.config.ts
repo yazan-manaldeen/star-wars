@@ -11,6 +11,7 @@ export interface AppObjectCardsConfig {
   character: ObjectCardsConfig;
   planet: ObjectCardsConfig;
   vehicle: ObjectCardsConfig;
+  starship: ObjectCardsConfig;
 }
 
 export const objectCardsConfig: AppObjectCardsConfig = {
@@ -57,5 +58,16 @@ export const objectCardsConfig: AppObjectCardsConfig = {
       {label: 'Ladekapazität:', propName: 'cargo_capacity', suffix: 'Kg'},
     ],
     routerLink: '/vehicle-details/'
+  },
+  starship: {
+    title: 'Raumschiffe',
+    imgFolder: 'thumbnails',
+    titleProp: 'name',
+    displayProps: [
+      {label: 'Modell:', propName: 'model'},
+      {label: 'Produzenten:', propName: 'manufacturer'},
+      {label: 'Ladekapazität:', propName: 'cargo_capacity', suffix: 'Kg'},
+    ],
+    routerLink: '/starship-details/'
   }
 }

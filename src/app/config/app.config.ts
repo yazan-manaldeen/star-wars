@@ -3,6 +3,6 @@ export const appConfig = {
   characterChildrenArray: ['films', 'starships', 'vehicles', 'homeworld'], // species
   planetChildrenArray: ['films', 'residents'],
   vehicleChildrenArray: ['films', 'pilots'],
-  // starshipsChildrenArray: ['films', 'pilots'],
-  // speciesChildrenArray: ['films', 'people', 'homeworld']
+  starshipChildrenArray: ['films', 'pilots'],
+  // specieChildrenArray: ['films', 'people', 'homeworld']
 };
