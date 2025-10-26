@@ -1,0 +1,82 @@
+<div class="w-md max-sm:max-w-[300px] max-h-[90vh] p-6">
+  <div class="flex items-center justify-center">
+    <span class="text-base font-bold">Charakter hinzufügen</span>
+  </div>
+  <div class="my-8">
+    <form (ngSubmit)="formGroup.valid && onSubmit(formGroup.value)"
+          *ngIf="formGroup"
+          [formGroup]="formGroup">
+
+      <mat-form-field class="w-full">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput placeholder="Name eingeben">
+        <mat-error *ngIf="formGroup.get('name')?.hasError('required')">
+          Name is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="sm:w-[50%] w-full">
+        <mat-label>Größe</mat-label>
+        <input formControlName="height" matInput placeholder="Größe eingeben" type="number">
+        <mat-error *ngIf="formGroup.get('height')?.hasError('required')">
+          Größe is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="sm:w-[50%] w-full">
+        <mat-label>Gweicht</mat-label>
+        <input formControlName="mass" matInput placeholder="Gweicht eingeben" type="number">
+        <mat-error *ngIf="formGroup.get('mass')?.hasError('required')">
+          Gweicht is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="sm:w-[50%] w-full">
+        <mat-label>Haarfarbe</mat-label>
+        <input formControlName="hair_color" matInput placeholder="Haarfarbe eingeben">
+        <mat-error *ngIf="formGroup.get('hair_color')?.hasError('required')">
+          Haarfarbe is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="sm:w-[50%] w-full">
+        <mat-label>Augenfarbe</mat-label>
+        <mat-select formControlName="eye_color" placeholder="Augenfarbe eingeben">
+          <mat-option *ngFor="let item of eyeColorsArray" [value]="item.value">{{ item.key }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="formGroup.get('eye_color')?.hasError('required')">
+          Augenfarbe is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="sm:w-[50%] w-full">
+        <mat-label>Geburtsjahr</mat-label>
+        <input [matDatepicker]="dp" formControlName="birth_year" matInput placeholder="YYYY">
+        <mat-datepicker-toggle [for]="dp" matIconSuffix></mat-datepicker-toggle>
+        <mat-datepicker #dp
+                        (yearSelected)="setYear($event, dp)"
+                        startView="multi-year">
+        </mat-datepicker>
+        <mat-error *ngIf="formGroup.get('birth_year')?.hasError('required')">
+          Geburtsjahr is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="sm:w-[50%] w-full">
+        <mat-label>Geschlecht</mat-label>
+        <mat-select formControlName="gender" placeholder="Geschlecht eingeben">
+          <mat-option *ngFor="let item of genderArray" [value]="item.value">{{ item.key }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="formGroup.get('gender')?.hasError('required')">
+          Geschlecht is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <div class="my-8 float-right float-bottom">
+        <button (click)="closeDialog()" class="mr-2" mat-raised-button>Abbrechen</button>
+        <button class="mr-2" color="primary" mat-raised-button type="submit">Hinzufügen</button>
+      </div>
+
+    </form>
+  </div>
+</div>

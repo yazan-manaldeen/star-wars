@@ -1,0 +1,66 @@
+<div class="w-md max-sm:max-w-[300px] max-h-[90vh] p-6">
+  <div class="flex items-center justify-center">
+    <span class="text-base font-bold">Film hinzufügen</span>
+  </div>
+  <div class="my-8">
+    <form (ngSubmit)="formGroup.valid && onSubmit(formGroup.value)"
+          *ngIf="formGroup"
+          [formGroup]="formGroup">
+
+      <mat-form-field class="w-full">
+        <mat-label>Title</mat-label>
+        <input formControlName="title" matInput placeholder="Title eingeben">
+        <mat-error *ngIf="formGroup.get('title')?.hasError('required')">
+          Title is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
+        <mat-label>Director</mat-label>
+        <input formControlName="director" matInput placeholder="Adresszusatz eingeben">
+        <mat-error *ngIf="formGroup.get('director')?.hasError('required')">
+          Director is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
+        <mat-label>Producent</mat-label>
+        <mat-select formControlName="producent" placeholder="Producent eingeben">
+          <mat-option value="one">First option</mat-option>
+          <mat-option value="tow">Second option</mat-option>
+          <mat-option value="three">Third option</mat-option>
+        </mat-select>
+        <mat-error *ngIf="formGroup.get('producent')?.hasError('required')">
+          Producent is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
+        <mat-label>Erscheinungsdatum</mat-label>
+        <input [matDatepicker]="dp" formControlName="erscheinungsdatum" matInput placeholder="YYYY">
+        <mat-datepicker-toggle [for]="dp" matIconSuffix></mat-datepicker-toggle>
+        <mat-datepicker #dp
+                        (yearSelected)="setYear($event, dp)"
+                        startView="multi-year">
+        </mat-datepicker>
+        <mat-error *ngIf="formGroup.get('erscheinungsdatum')?.hasError('required')">
+          Erscheinungsdatum is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
+        <mat-label>Beschreibung</mat-label>
+        <textarea formControlName="beschreibung" matInput placeholder="Beschreibung"></textarea>
+        <mat-error *ngIf="formGroup.get('beschreibung')?.hasError('required')">
+          Beschreibung is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <div class="my-8 float-right float-bottom">
+        <button (click)="closeDialog()" class="mr-2" mat-raised-button>Abbrechen</button>
+        <button class="mr-2" color="primary" mat-raised-button type="submit">Hinzufügen</button>
+      </div>
+
+    </form>
+  </div>
+</div>

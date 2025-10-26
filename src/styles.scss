@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+@use "tailwindcss";
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+* {
+  color: #10172c !important;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+
+.cdk-overlay-dark-backdrop,
+:root .mat-drawer-backdrop.mat-drawer-shown {
+  @apply backdrop-blur-md bg-transparent;
+}
+
+.mat-mdc-form-field {
+  padding: 8px;
+}
+
+mat-label {
+  color: #00305a !important;
+}
+
+.mat-mdc-raised-button.mat-primary {
+  background-color: #10172c !important;
+
+  * {
+    color: white !important;
+  }
+}
+
+.mdc-floating-label--required:not(.mdc-floating-label--hide-required-marker)::after, .mat-mdc-form-field-error {
+  color: red !important;
+}

@@ -1,0 +1,49 @@
+export interface ObjectCardsConfig {
+  title: string;
+  imgFolder: string;
+  titleProp: string;
+  displayProps: { label: string; propName: string }[];
+  routerLink: string;
+}
+
+export interface AppObjectCardsConfig {
+  film: ObjectCardsConfig;
+  character: ObjectCardsConfig;
+  planet: ObjectCardsConfig;
+}
+
+export const objectCardsConfig: AppObjectCardsConfig = {
+  film: {
+    title: 'Filme',
+    imgFolder: 'thumbnails',
+    titleProp: 'title',
+    displayProps: [
+      {label: 'Director:', propName: 'director'},
+      {label: 'Produzenten:', propName: 'producer'},
+      {label: 'Erscheinungsdatum:', propName: 'release_date'},
+    ],
+    routerLink: '/film-details/'
+  },
+  character: {
+    title: 'Charaktere',
+    imgFolder: 'thumbnails',
+    titleProp: 'name',
+    displayProps: [
+      {label: 'Augenfarbe:', propName: 'eye_color'},
+      {label: 'Geburtsjahr:', propName: 'birth_year'},
+      {label: 'Geschlecht:', propName: 'gender'},
+    ],
+    routerLink: '/character-details/'
+  },
+  planet: {
+    title: 'Planeten',
+    imgFolder: 'planets',
+    titleProp: 'name',
+    displayProps: [
+      {label: 'Rotationsperiode:', propName: 'rotation_period'},
+      {label: 'Durchmesser:', propName: 'diameter'},
+      {label: 'Terrain:', propName: 'terrain'},
+    ],
+    routerLink: '/planet-details/'
+  }
+}

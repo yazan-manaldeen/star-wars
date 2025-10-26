@@ -1,0 +1,48 @@
+<ng-container *ngIf="dataObj">
+  <div class="w-full h-[18rem] flex flex-col items-center justify-center">
+    <span @fadeIn @fadeOut class="text-xl">{{ config.title }}</span>
+    <span @fadeIn @fadeOut class="w-[50px] mt-2 border-b-1"></span>
+    <span @fadeIn @fadeOut class="text-6xl font-bold my-4 px-12">{{ dataObj[config.firstTitleProp] }}</span>
+    <span *ngIf="config.secondTitleProp" @fadeIn @fadeOut class="text-xl">
+    {{ config.secondTitleLabel }} {{ dataObj[config.secondTitleProp] }}
+  </span>
+  </div>
+  <div class="flex max-md:flex-col justify-between gap-8 px-12">
+    <div class="flex flex-col md:w-[50%]">
+      <span @fadeIn @fadeOut class="text-base font-bold mb-4">Details:</span>
+      <span *ngFor="let displayProp of config.displayProps" @fadeIn @fadeOut>
+      {{ displayProp.label }} {{ dataObj[displayProp.propName] }} {{ displayProp.suffix || '' }}</span>
+      <span *ngIf="config.descriptionProp" @fadeIn @fadeOut class="mt-4">
+        {{ dataObj[config.descriptionProp] }}
+      </span>
+      <span *ngIf="config.homeworld" @fadeIn @fadeOut class="mt-4 font-bold">
+        Heimatplanet:
+        <a @fadeIn @fadeOut
+           [routerLink]="'/planet-details/' + getObjectId(dataObj['homeworld'])">
+            {{ dataObj['homeworld'].name }}
+          </a>
+      </span>
+    </div>
+    <img @fadeIn @fadeOut alt="Thumbnail-{{objId % 6}}" class="mx-auto object-contain w-[400px]"
+         src="assets/{{config.imgFolder}}/thumbnail-{{objId % 6}}.png"/>
+  </div>
+  <div class="mx-12 mb-12">
+    <ng-container *ngFor="let relation of config.relations">
+      <span @fadeIn @fadeOut class="block text-lg font-bold mb-2 mt-12">{{ relation.title }}</span>
+      <div
+        class="grid gap-2 ml-4 items-center font-bold grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
+    <span *ngFor="let item of dataObj[relation.dataPath]">
+          <a @fadeIn @fadeOut
+             [class.disabled-a-link]="!relation.routerLink"
+             [routerLink]="relation.routerLink ? (relation.routerLink + getObjectId(item)) : ''">
+            {{ item[relation.displayProp] }}
+          </a>
+    </span>
+        <button (click)="openDialog(relation.component)" @fadeIn @fadeOut [disabled]="!relation.component"
+                mat-icon-button>
+          <mat-icon>more_horiz</mat-icon>
+        </button>
+      </div>
+    </ng-container>
+  </div>
+</ng-container>

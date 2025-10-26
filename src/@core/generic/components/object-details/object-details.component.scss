@@ -1,0 +1,11 @@
+mat-mdc-icon-button[disabled], .mat-mdc-icon-button.mat-mdc-button-disabled {
+  .mat-icon {
+    color: #10172ca5 !important;
+  }
+}
+
+.disabled-a-link {
+  cursor: default !important;
+  pointer-events: none !important;
+  color: #10172ca5 !important;
+}

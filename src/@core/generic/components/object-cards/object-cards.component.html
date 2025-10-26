@@ -1,0 +1,21 @@
+<div class="w-full h-[18rem] flex items-center justify-center">
+  <span @fadeIn @fadeOut class="text-6xl font-bold">{{ config.title }}</span>
+</div>
+<div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mx-auto sm:mx-12">
+  <div *ngFor="let cardItem of list; let idx = index"
+       class="flex flex-col m-auto w-full max-sm:max-w-[280px] max-w-[450px]">
+    <a [routerLink]="config.routerLink + getObjectId(cardItem)">
+      <img @fadeIn @fadeOut alt="Thumbnail-{{idx}}" src="assets/{{config.imgFolder}}/thumbnail-{{idx % 6}}.png"/>
+
+      <div class="ml-4 flex flex-col">
+        <span @fadeIn @fadeOut class="my-4 text-base font-bold">{{ cardItem[config.titleProp] }}</span>
+
+        <span *ngFor="let displayProp of config.displayProps" @fadeIn @fadeOut class="truncate">
+          {{ displayProp.label }} {{ cardItem[displayProp.propName] }}
+        </span>
+
+        <span @fadeIn @fadeOut class="my-4 font-bold">Mehr Informationen...</span>
+      </div>
+    </a>
+  </div>
+</div>

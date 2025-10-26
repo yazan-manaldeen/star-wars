@@ -1,0 +1,32 @@
+<div class="flex flex-col w-full top-0">
+  <mat-toolbar class="sticky w-full h-[60px]! z-20 top-0 start-0 flex bg-white!">
+
+    <button (click)="drawer.toggle()" class="md:!hidden" mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <a [routerLink]="'/home'" class="flex items-center ml-4 mr-16 md:ml-16">
+      <img alt="Star Wars" class="h-12" src="assets/app-logo.png">
+    </a>
+
+    <div class="max-md:!hidden flex flex-row items-center font-medium">
+      <span *ngFor="let item of navItems" class="mx-6">
+        <a [routerLink]="item.path" class="bg-transparent text-blue-400">{{ item.name }}</a>
+      </span>
+    </div>
+  </mat-toolbar>
+
+  <mat-drawer-container>
+    <mat-drawer #drawer [style.height]="'calc(100vh - 60px)'" class="md:!hidden">
+      <div class="flex flex-col items-center font-medium mt-4">
+        <span *ngFor="let item of navItems" class="mx-18 my-2">
+          <a (click)="drawer.toggle()" [routerLink]="item.path" class="bg-transparent text-blue-400">{{ item.name }}</a>
+        </span>
+      </div>
+    </mat-drawer>
+    <mat-drawer-content [style.height]="'calc(100vh - 60px)'"
+                        class="overflow-scroll">
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>
