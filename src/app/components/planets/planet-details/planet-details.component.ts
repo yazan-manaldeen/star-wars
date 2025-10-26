@@ -26,7 +26,7 @@ export class PlanetDetailsComponent implements OnDestroy {
     this._activatedRoute.params.pipe(
       takeUntil(this._unsubscribeAll)
     ).subscribe((params: Params) => {
-      this.planetId = +params['planetId'] - 1;
+      this.planetId = +params['planetId'];
       this._store.dispatch(new GetObjectById('planets', +params['planetId'], appConfig.planetChildrenArray));
     });
   }

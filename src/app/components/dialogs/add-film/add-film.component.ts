@@ -32,7 +32,7 @@ export class AddFilmComponent {
   formGroup: FormGroup = this.fb.group({
     title: ['', Validators.required],
     director: ['', Validators.required],
-    producent: ['', Validators.required],
+    producer: ['', Validators.required],
     erscheinungsdatum: new FormControl(null, [Validators.required]),
     beschreibung: ['', Validators.required]
   });

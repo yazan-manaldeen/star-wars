@@ -2,10 +2,11 @@
   <span @fadeIn @fadeOut class="text-6xl font-bold">{{ config.title }}</span>
 </div>
 <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mx-auto sm:mx-12">
-  <div *ngFor="let cardItem of list; let idx = index"
+  <div *ngFor="let cardItem of list;"
        class="flex flex-col m-auto w-full max-sm:max-w-[280px] max-w-[450px]">
     <a [routerLink]="config.routerLink + getObjectId(cardItem)">
-      <img @fadeIn @fadeOut alt="Thumbnail-{{idx}}" src="assets/{{config.imgFolder}}/thumbnail-{{idx % 6}}.png"/>
+      <img @fadeIn @fadeOut alt="Thumbnail-{{getObjectId(cardItem)}}"
+           src="assets/{{config.imgFolder}}/thumbnail-{{getObjectId(cardItem) % 6}}.png"/>
 
       <div class="ml-4 flex flex-col">
         <span @fadeIn @fadeOut class="my-4 text-base font-bold">{{ cardItem[config.titleProp] }}</span>

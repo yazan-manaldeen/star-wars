@@ -5,12 +5,12 @@
       <mat-icon>menu</mat-icon>
     </button>
 
-    <a [routerLink]="'/home'" class="flex items-center ml-4 mr-16 md:ml-16">
+    <a [routerLink]="'/home'" class="flex items-center ml-4 mr-16">
       <img alt="Star Wars" class="h-12" src="assets/app-logo.png">
     </a>
 
     <div class="max-lg:!hidden flex flex-row items-center font-medium">
-      <span *ngFor="let item of navItems" class="mx-6">
+      <span *ngFor="let item of navItems" class="ml-8">
         <a [routerLink]="item.path" class="bg-transparent text-blue-400">{{ item.name }}</a>
       </span>
     </div>

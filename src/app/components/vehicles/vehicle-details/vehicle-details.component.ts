@@ -26,7 +26,7 @@ export class VehicleDetailsComponent implements OnDestroy {
     this._activatedRoute.params.pipe(
       takeUntil(this._unsubscribeAll)
     ).subscribe((params: Params) => {
-      this.vehicleId = +params['vehicleId'] - 1;
+      this.vehicleId = +params['vehicleId'];
       this._store.dispatch(new GetObjectById('vehicles', +params['vehicleId'], appConfig.vehicleChildrenArray));
     });
   }

@@ -4,6 +4,7 @@ import {Store} from "@ngxs/store";
 import {appAnimations} from "@core/animations/app.animations";
 import {ResetSelectedObject} from "@app/store/app.action";
 import {getObjectId} from "@app/utils/app.utils";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-object-details',
@@ -13,7 +14,7 @@ import {getObjectId} from "@app/utils/app.utils";
 })
 export class ObjectDetailsComponent implements OnDestroy {
 
-  @Input() objId: number = 0;
+  @Input() objId: number;
   @Input() config: any = {};
   @Input() dataObj: any;
 
@@ -21,7 +22,11 @@ export class ObjectDetailsComponent implements OnDestroy {
 
   readonly dialog = inject(MatDialog);
 
-  constructor(private _store: Store) {
+  constructor(private _store: Store, private _location: Location) {
+  }
+
+  backClicked() {
+    this._location.back();
   }
 
   openDialog(component: any) {

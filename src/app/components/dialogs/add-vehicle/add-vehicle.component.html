@@ -1,6 +1,6 @@
 <div class="w-md max-sm:max-w-[300px] max-h-[90vh] p-6">
   <div class="flex items-center justify-center">
-    <span class="text-base font-bold">Vehicle hinzufügen</span>
+    <span class="text-base font-bold">Fahrzeug hinzufügen</span>
   </div>
   <div class="my-8">
     <form (ngSubmit)="formGroup.valid && onSubmit(formGroup.value)"
@@ -49,7 +49,7 @@
 
       <mat-form-field class="sm:w-[50%] w-full">
         <mat-label>Crew</mat-label>
-        <input formControlName="crew" matInput placeholder="Crew eingeben" type="number">
+        <input formControlName="crew" matInput placeholder="Man" type="number">
         <mat-error *ngIf="formGroup.get('crew')?.hasError('required')">
           Crew is Required!
         </mat-error>
@@ -57,7 +57,7 @@
 
       <mat-form-field class="sm:w-[50%] w-full">
         <mat-label>Passagiere</mat-label>
-        <input formControlName="passengers" matInput placeholder="Passagiere eingeben" type="number">
+        <input formControlName="passengers" matInput placeholder="Man" type="number">
         <mat-error *ngIf="formGroup.get('passengers')?.hasError('required')">
           Passagiere is Required!
         </mat-error>
@@ -73,7 +73,7 @@
 
       <mat-form-field class="sm:w-[50%] w-full">
         <mat-label>Konsumgüter</mat-label>
-        <input formControlName="consumables" matInput placeholder="Monat" type="number">
+        <input formControlName="consumables" matInput placeholder="Monat / Jahr">
         <mat-error *ngIf="formGroup.get('consumables')?.hasError('required')">
           Konsumgüter is Required!
         </mat-error>

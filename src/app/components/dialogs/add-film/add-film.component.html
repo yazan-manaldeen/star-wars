@@ -24,14 +24,14 @@
       </mat-form-field>
 
       <mat-form-field class="w-full">
-        <mat-label>Producent</mat-label>
-        <mat-select formControlName="producent" placeholder="Producent eingeben">
+        <mat-label>Produzent</mat-label>
+        <mat-select formControlName="producer" placeholder="Produzent eingeben">
           <mat-option value="one">First option</mat-option>
           <mat-option value="tow">Second option</mat-option>
           <mat-option value="three">Third option</mat-option>
         </mat-select>
-        <mat-error *ngIf="formGroup.get('producent')?.hasError('required')">
-          Producent is Required!
+        <mat-error *ngIf="formGroup.get('producer')?.hasError('required')">
+          Produzent is Required!
         </mat-error>
       </mat-form-field>
 

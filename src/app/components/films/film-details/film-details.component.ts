@@ -26,7 +26,7 @@ export class FilmDetailsComponent implements OnDestroy {
     this._activatedRoute.params.pipe(
       takeUntil(this._unsubscribeAll)
     ).subscribe((params: Params) => {
-      this.filmId = +params['filmId'] - 1;
+      this.filmId = +params['filmId'];
       this._store.dispatch(new GetObjectById('films', +params['filmId'], appConfig.filmChildrenArray));
     });
   }

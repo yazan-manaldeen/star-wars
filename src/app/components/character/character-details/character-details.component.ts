@@ -26,7 +26,7 @@ export class CharacterDetailsComponent implements OnDestroy {
     this._activatedRoute.params.pipe(
       takeUntil(this._unsubscribeAll)
     ).subscribe((params: Params) => {
-      this.characterId = +params['characterId'] - 1;
+      this.characterId = +params['characterId'];
       this._store.dispatch(new GetObjectById('people', +params['characterId'], appConfig.characterChildrenArray));
     });
   }

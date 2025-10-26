@@ -26,7 +26,7 @@ export class StarshipDetailsComponent implements OnDestroy {
     this._activatedRoute.params.pipe(
       takeUntil(this._unsubscribeAll)
     ).subscribe((params: Params) => {
-      this.starshipId = +params['starshipId'] - 1;
+      this.starshipId = +params['starshipId'];
       this._store.dispatch(new GetObjectById('starships', +params['starshipId'], appConfig.starshipChildrenArray));
     });
   }

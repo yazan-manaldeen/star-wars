@@ -59,7 +59,7 @@ const planetRelation = {
 };
 
 const vehiclesRelation = {
-  title: 'Fahezeuge:',
+  title: 'Fahrzeuge:',
   dataPath: 'vehicles',
   displayProp: 'name',
   routerLink: '/vehicle-details/',
@@ -114,7 +114,7 @@ export const objectDetailsConfig: AppObjectDetailsConfig = {
     relations: [filmRelation, starshipsRelation, vehiclesRelation, speciesRelation]
   },
   planet: {
-    title: 'Planetdetails',
+    title: 'Planet Details',
     firstTitleProp: 'name',
     displayProps: [
       {label: 'Durchmesser:', propName: 'diameter', suffix: 'Km'},

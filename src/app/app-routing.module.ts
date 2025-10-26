@@ -48,7 +48,7 @@ const routes: Routes = [
   {
     path: 'planet-details/:planetId',
     component: PlanetDetailsComponent,
-    title: 'Planetdetails'
+    title: 'Planet Details'
   },
   {
     path: 'vehicles',
@@ -78,7 +78,7 @@ const routes: Routes = [
   {
     path: 'specie-details/:specieId',
     component: SpecieDetailsComponent,
-    title: 'Spezies'
+    title: 'Spezies Details'
   },
 
 

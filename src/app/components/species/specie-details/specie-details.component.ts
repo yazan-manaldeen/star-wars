@@ -26,7 +26,7 @@ export class SpecieDetailsComponent implements OnDestroy {
     this._activatedRoute.params.pipe(
       takeUntil(this._unsubscribeAll)
     ).subscribe((params: Params) => {
-      this.specieId = +params['specieId'] - 1;
+      this.specieId = +params['specieId'];
       this._store.dispatch(new GetObjectById('species', +params['specieId'], appConfig.specieChildrenArray));
     });
   }
