@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "server": "http-server dist/star-wars/browser -p 8080 -c-1 -o --proxy http://localhost:8081?",
+    "server": "http-server docs -p 8080 -c-1 -o --proxy http://localhost:8080?",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
