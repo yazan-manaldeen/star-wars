@@ -11,6 +11,7 @@ export class AddVehicleComponent {
 
   readonly dialogRef = inject(MatDialogRef<AddVehicleComponent>);
   formGroup: FormGroup = this.fb.group({
+    name: ['', Validators.required],
     model: ['', Validators.required],
     vehicle_class: ['', Validators.required],
     manufacturer: ['', Validators.required],

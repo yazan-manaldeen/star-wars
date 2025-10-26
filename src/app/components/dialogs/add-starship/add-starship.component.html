@@ -8,6 +8,14 @@
           [formGroup]="formGroup">
 
       <mat-form-field class="w-full">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput placeholder="Name eingeben">
+        <mat-error *ngIf="formGroup.get('name')?.hasError('required')">
+          Name is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
         <mat-label>Modell</mat-label>
         <input formControlName="model" matInput placeholder="Modell eingeben">
         <mat-error *ngIf="formGroup.get('model')?.hasError('required')">

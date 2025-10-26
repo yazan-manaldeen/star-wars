@@ -12,6 +12,7 @@ export class AddStarshipComponent {
 
   readonly dialogRef = inject(MatDialogRef<AddStarshipComponent>);
   formGroup: FormGroup = this.fb.group({
+    name: ['', Validators.required],
     model: ['', Validators.required],
     starship_class: ['', Validators.required],
     manufacturer: ['', Validators.required],
