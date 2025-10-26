@@ -13,7 +13,6 @@ export interface ObjectDetailsConfig {
   imgFolder?: string;
   relations: {
     title: string;
-    name: string;
     dataPath: string;
     displayProp: string;
     routerLink?: string;
@@ -43,7 +42,6 @@ export const objectDetailsConfig: AppObjectDetailsConfig = {
     relations: [
       {
         title: 'Charaktere:',
-        name: 'Charakter',
         dataPath: 'characters',
         displayProp: 'name',
         routerLink: '/character-details/',
@@ -51,7 +49,6 @@ export const objectDetailsConfig: AppObjectDetailsConfig = {
       },
       {
         title: 'Planeten:',
-        name: 'Planet',
         dataPath: 'planets',
         displayProp: 'name',
         routerLink: '/planet-details/',
@@ -59,13 +56,11 @@ export const objectDetailsConfig: AppObjectDetailsConfig = {
       },
       {
         title: 'Raumschiffe:',
-        name: 'Raumschiff',
         dataPath: 'starships',
         displayProp: 'name'
       },
       {
         title: 'Fahezeuge:',
-        name: 'Fahezeug',
         dataPath: 'vehicles',
         displayProp: 'name'
       },
@@ -88,7 +83,6 @@ export const objectDetailsConfig: AppObjectDetailsConfig = {
     relations: [
       {
         title: 'Filme:',
-        name: 'Film',
         dataPath: 'films',
         displayProp: 'title',
         routerLink: '/film-details/',
@@ -96,13 +90,11 @@ export const objectDetailsConfig: AppObjectDetailsConfig = {
       },
       {
         title: 'Raumschiffe:',
-        name: 'Raumschiff',
         dataPath: 'starships',
         displayProp: 'name'
       },
       {
         title: 'Fahezeuge:',
-        name: 'Fahezeug',
         dataPath: 'vehicles',
         displayProp: 'name'
       }
@@ -125,7 +117,6 @@ export const objectDetailsConfig: AppObjectDetailsConfig = {
     relations: [
       {
         title: 'Filme:',
-        name: 'Film',
         dataPath: 'films',
         displayProp: 'title',
         routerLink: '/film-details/',
@@ -133,7 +124,6 @@ export const objectDetailsConfig: AppObjectDetailsConfig = {
       },
       {
         title: 'Einwohner:',
-        name: 'Einwohner',
         dataPath: 'residents',
         displayProp: 'name',
         routerLink: '/character-details/',
