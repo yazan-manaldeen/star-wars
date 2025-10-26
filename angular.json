@@ -28,6 +28,7 @@
               "base": "docs/",
               "browser": ""
             },
+            "baseHref": "/star-wars/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
