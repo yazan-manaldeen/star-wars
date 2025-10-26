@@ -20,16 +20,16 @@ export const MY_FORMATS = {
 };
 
 @Component({
-  selector: 'app-add-people',
-  templateUrl: './add-people.component.html',
-  styleUrl: './add-people.component.scss',
+  selector: 'app-add-character',
+  templateUrl: './add-character.component.html',
+  styleUrl: './add-character.component.scss',
   providers: [
     provideMomentDateAdapter(MY_FORMATS),
   ]
 })
-export class AddPeopleComponent {
+export class AddCharacterComponent {
 
-  readonly dialogRef = inject(MatDialogRef<AddPeopleComponent>);
+  readonly dialogRef = inject(MatDialogRef<AddCharacterComponent>);
   formGroup: FormGroup = this.fb.group({
     name: ['', Validators.required],
     height: ['', Validators.required],

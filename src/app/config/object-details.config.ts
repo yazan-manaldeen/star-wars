@@ -1,6 +1,14 @@
 import {AddPlanetComponent} from "@app/components/dialogs/add-planet/add-planet.component";
 import {AddFilmComponent} from "@app/components/dialogs/add-film/add-film.component";
-import {AddPeopleComponent} from "@app/components/dialogs/add-people/add-people.component";
+import {AddCharacterComponent} from "@app/components/dialogs/add-character/add-character.component";
+
+export interface Relation {
+  title: string;
+  dataPath: string;
+  displayProp: string;
+  routerLink?: string;
+  component?: any;
+}
 
 export interface ObjectDetailsConfig {
   title: string;
@@ -11,13 +19,7 @@ export interface ObjectDetailsConfig {
   descriptionProp?: string;
   homeworld?: string;
   imgFolder?: string;
-  relations: {
-    title: string;
-    dataPath: string;
-    displayProp: string;
-    routerLink?: string;
-    component?: any;
-  }[];
+  relations: Relation[];
 }
 
 export interface AppObjectDetailsConfig {
@@ -25,6 +27,42 @@ export interface AppObjectDetailsConfig {
   character: ObjectDetailsConfig;
   planet: ObjectDetailsConfig;
 }
+
+const filmRelation = {
+  title: 'Filme:',
+  dataPath: 'films',
+  displayProp: 'title',
+  routerLink: '/film-details/',
+  component: AddFilmComponent
+};
+
+const characterRelation = {
+  title: 'Charaktere:',
+  dataPath: 'characters',
+  displayProp: 'name',
+  routerLink: '/character-details/',
+  component: AddCharacterComponent
+};
+
+const planetRelation = {
+  title: 'Planeten:',
+  dataPath: 'planets',
+  displayProp: 'name',
+  routerLink: '/planet-details/',
+  component: AddPlanetComponent
+};
+
+const starshipsRelation = {
+  title: 'Raumschiffe:',
+  dataPath: 'starships',
+  displayProp: 'name'
+};
+
+const vehiclesRelation = {
+  title: 'Fahezeuge:',
+  dataPath: 'vehicles',
+  displayProp: 'name'
+};
 
 export const objectDetailsConfig: AppObjectDetailsConfig = {
   film: {
@@ -39,32 +77,7 @@ export const objectDetailsConfig: AppObjectDetailsConfig = {
     ],
     descriptionProp: 'opening_crawl',
     imgFolder: 'thumbnails',
-    relations: [
-      {
-        title: 'Charaktere:',
-        dataPath: 'characters',
-        displayProp: 'name',
-        routerLink: '/character-details/',
-        component: AddPeopleComponent
-      },
-      {
-        title: 'Planeten:',
-        dataPath: 'planets',
-        displayProp: 'name',
-        routerLink: '/planet-details/',
-        component: AddPlanetComponent
-      },
-      {
-        title: 'Raumschiffe:',
-        dataPath: 'starships',
-        displayProp: 'name'
-      },
-      {
-        title: 'Fahezeuge:',
-        dataPath: 'vehicles',
-        displayProp: 'name'
-      },
-    ]
+    relations: [characterRelation, planetRelation, starshipsRelation, vehiclesRelation]
   },
   character: {
     title: 'Charakterdetails',
@@ -80,25 +93,7 @@ export const objectDetailsConfig: AppObjectDetailsConfig = {
     ],
     imgFolder: 'thumbnails',
     homeworld: 'homeworld',
-    relations: [
-      {
-        title: 'Filme:',
-        dataPath: 'films',
-        displayProp: 'title',
-        routerLink: '/film-details/',
-        component: AddFilmComponent
-      },
-      {
-        title: 'Raumschiffe:',
-        dataPath: 'starships',
-        displayProp: 'name'
-      },
-      {
-        title: 'Fahezeuge:',
-        dataPath: 'vehicles',
-        displayProp: 'name'
-      }
-    ]
+    relations: [filmRelation, starshipsRelation, vehiclesRelation]
   },
   planet: {
     title: 'Planetdetails',
@@ -114,20 +109,11 @@ export const objectDetailsConfig: AppObjectDetailsConfig = {
       {label: 'Umlaufzeit:', propName: 'orbital_period', suffix: 'Tag'},
     ],
     imgFolder: 'planets',
-    relations: [
+    relations: [filmRelation,
       {
-        title: 'Filme:',
-        dataPath: 'films',
-        displayProp: 'title',
-        routerLink: '/film-details/',
-        component: AddFilmComponent
-      },
-      {
+        ...characterRelation,
         title: 'Einwohner:',
-        dataPath: 'residents',
-        displayProp: 'name',
-        routerLink: '/character-details/',
-        component: AddPeopleComponent
+        dataPath: 'residents'
       },
     ]
   }

@@ -27,7 +27,7 @@ import {PlanetDetailsComponent} from "@app/components/planets/planet-details/pla
 import {ObjectCardsComponent} from "@core/generic/components/object-cards/object-cards.component";
 import {ObjectDetailsComponent} from "@core/generic/components/object-details/object-details.component";
 import {AddPlanetComponent} from "@app/components/dialogs/add-planet/add-planet.component";
-import {AddPeopleComponent} from "@app/components/dialogs/add-people/add-people.component";
+import {AddCharacterComponent} from "@app/components/dialogs/add-character/add-character.component";
 import {AddFilmComponent} from "@app/components/dialogs/add-film/add-film.component";
 import {AppRoutingModule} from "@app/app-routing.module";
 import {AppState} from "@app/store/app.state";
@@ -46,7 +46,7 @@ import {TitleStrategyService} from "@core/services/title-strategy.service";
     ObjectCardsComponent,
     ObjectDetailsComponent,
     AddPlanetComponent,
-    AddPeopleComponent,
+    AddCharacterComponent,
     AddFilmComponent
   ],
   imports: [
