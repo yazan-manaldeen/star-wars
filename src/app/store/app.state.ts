@@ -10,17 +10,25 @@ import {
   ResetSelectedObject
 } from "@app/store/app.action";
 import {produce} from "immer";
+import {PaginationModel} from "@core/generic/models/pagination.model";
 
 
 interface AppStateModel {
   pending: boolean;
-  objectsArray: any[];
+  pagination: PaginationModel;
+  objectsArray: { [key: string]: any[] };
   selectedObject: any;
 }
 
 const defaults: AppStateModel = {
   pending: true,
-  objectsArray: [],
+  pagination: {
+    total: null,
+    total_pages: null,
+    page: 1,
+    per_page: 10
+  },
+  objectsArray: {},
   selectedObject: null
 }
 
@@ -41,8 +49,13 @@ export class AppState {
   }
 
   @Selector()
+  static pagination(state: AppStateModel): PaginationModel {
+    return state.pagination;
+  }
+
+  @Selector()
   static objectsArray(state: AppStateModel): any[] {
-    return state.objectsArray;
+    return state.objectsArray[`${state.pagination.page}`];
   }
 
   @Selector()
@@ -51,13 +64,24 @@ export class AppState {
   }
 
   @Action(GetDataArray)
-  getDataArray({setState, getState, patchState}: StateContext<AppStateModel>,
-               {dataType}: GetDataArray) {
-    patchState({pending: true});
-    return this._appService.getDataArray(dataType).pipe(
+  getDataArray({setState, getState}: StateContext<AppStateModel>,
+               {dataType, page}: GetDataArray) {
+    if (getState().objectsArray[`${page}`]) {
+      setState(produce(getState(), state => {
+        state.pagination.page = page;
+      }));
+      return undefined;
+    }
+    setState(produce(getState(), state => {
+      state.pending = true;
+      state.pagination.page = page;
+    }));
+    return this._appService.getDataArray(dataType, page).pipe(
       tap((res) => {
         setState(produce(getState(), state => {
-          state.objectsArray = res['results'];
+          state.objectsArray[`${page}`] = res['results'];
+          state.pagination.total = res['count'];
+          state.pagination.total_pages = Math.ceil(+res['count'] / page);
           state.pending = false;
         }));
       })
@@ -65,9 +89,11 @@ export class AppState {
   }
 
   @Action(GetObjectById)
-  getObjectById({setState, getState, patchState, dispatch}: StateContext<AppStateModel>,
+  getObjectById({setState, getState, dispatch}: StateContext<AppStateModel>,
                 {objType, objId, childrenArray}: GetObjectById) {
-    patchState({pending: true});
+    setState(produce(getState(), state => {
+      state.pending = true;
+    }));
     return this._appService.getObjectById(objType, objId).pipe(
       tap((res) => {
         setState(produce(getState(), state => {
@@ -106,14 +132,15 @@ export class AppState {
   @Action(ResetObjectsArray)
   resetObjectsArray({setState, getState}: StateContext<AppStateModel>) {
     setState(produce(getState(), state => {
-      state.objectsArray = [];
+      state.objectsArray = defaults.objectsArray;
+      state.pagination = defaults.pagination;
     }));
   }
 
   @Action(ResetSelectedObject)
   resetSelectedObject({setState, getState}: StateContext<AppStateModel>) {
     setState(produce(getState(), state => {
-      state.selectedObject = null;
+      state.selectedObject = defaults.selectedObject;
     }));
   }
 }

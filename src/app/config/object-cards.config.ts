@@ -7,16 +7,16 @@ export interface ObjectCardsConfig {
 }
 
 export interface AppObjectCardsConfig {
-  film: ObjectCardsConfig;
-  character: ObjectCardsConfig;
-  planet: ObjectCardsConfig;
-  vehicle: ObjectCardsConfig;
-  starship: ObjectCardsConfig;
-  specie: ObjectCardsConfig;
+  films: ObjectCardsConfig;
+  people: ObjectCardsConfig;
+  planets: ObjectCardsConfig;
+  vehicles: ObjectCardsConfig;
+  starships: ObjectCardsConfig;
+  species: ObjectCardsConfig;
 }
 
 export const objectCardsConfig: AppObjectCardsConfig = {
-  film: {
+  films: {
     title: 'Filme',
     imgFolder: 'thumbnails',
     titleProp: 'title',
@@ -27,7 +27,7 @@ export const objectCardsConfig: AppObjectCardsConfig = {
     ],
     routerLink: '/film-details/'
   },
-  character: {
+  people: {
     title: 'Charaktere',
     imgFolder: 'thumbnails',
     titleProp: 'name',
@@ -38,7 +38,7 @@ export const objectCardsConfig: AppObjectCardsConfig = {
     ],
     routerLink: '/character-details/'
   },
-  planet: {
+  planets: {
     title: 'Planeten',
     imgFolder: 'planets',
     titleProp: 'name',
@@ -49,7 +49,7 @@ export const objectCardsConfig: AppObjectCardsConfig = {
     ],
     routerLink: '/planet-details/'
   },
-  vehicle: {
+  vehicles: {
     title: 'Fahrzeuge',
     imgFolder: 'thumbnails',
     titleProp: 'name',
@@ -60,7 +60,7 @@ export const objectCardsConfig: AppObjectCardsConfig = {
     ],
     routerLink: '/vehicle-details/'
   },
-  starship: {
+  starships: {
     title: 'Raumschiffe',
     imgFolder: 'thumbnails',
     titleProp: 'name',
@@ -71,7 +71,7 @@ export const objectCardsConfig: AppObjectCardsConfig = {
     ],
     routerLink: '/starship-details/'
   },
-  specie: {
+  species: {
     title: 'Spezies',
     imgFolder: 'thumbnails',
     titleProp: 'name',

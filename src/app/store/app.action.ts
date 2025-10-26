@@ -1,7 +1,7 @@
 export class GetDataArray {
   static readonly type = '[App] Get Data Array';
 
-  constructor(public dataType: string) {
+  constructor(public dataType: string, public page: number) {
   }
 }
 

@@ -41,6 +41,7 @@ import {AddSpecieComponent} from "@app/components/dialogs/add-specie/add-specie.
 import {AppRoutingModule} from "@app/app-routing.module";
 import {AppState} from "@app/store/app.state";
 import {TitleStrategyService} from "@core/services/title-strategy.service";
+import {MatPaginator} from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import {TitleStrategyService} from "@core/services/title-strategy.service";
     MatDatepicker,
     MatDatepickerToggle,
     MatDatepickerInput,
+    MatPaginator,
   ],
   providers: [
     provideAnimationsAsync(),

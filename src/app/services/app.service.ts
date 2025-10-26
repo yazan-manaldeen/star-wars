@@ -15,8 +15,8 @@ export class AppService {
     return this._httpClient.get(url);
   }
 
-  getDataArray(dataType: string) {
-    return this._httpClient.get(`${this.#serverUrl}/${dataType}/`);
+  getDataArray(dataType: string, page: number) {
+    return this._httpClient.get(`${this.#serverUrl}/${dataType}/?page=${page}`);
   }
 
   getObjectById(objType: string, objId: number) {

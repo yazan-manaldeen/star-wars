@@ -11,22 +11,30 @@
 
     <div class="max-lg:!hidden flex flex-row items-center font-medium">
       <span *ngFor="let item of navItems" class="ml-8">
-        <a [routerLink]="item.path" class="bg-transparent text-blue-400">{{ item.name }}</a>
+        <a [queryParams]="item.queryParams"
+           [routerLink]="item.path"
+           class="bg-transparent text-blue-400">
+          {{ item.name }}</a>
       </span>
     </div>
   </mat-toolbar>
 
   <mat-drawer-container>
-    <mat-drawer #drawer [style.height]="'calc(100vh - 60px)'" class="lg:!hidden">
+    <mat-drawer #drawer [style.height]="'calc(100dvh - 60px)'" class="lg:!hidden">
       <div class="flex flex-col items-center font-medium mt-4">
         <span *ngFor="let item of navItems" class="mx-18 my-2">
-          <a (click)="drawer.toggle()" [routerLink]="item.path" class="bg-transparent text-blue-400">{{ item.name }}</a>
+          <a (click)="drawer.toggle()"
+             [queryParams]="item.queryParams"
+             [routerLink]="item.path"
+             class="bg-transparent text-blue-400">
+            {{ item.name }}</a>
         </span>
       </div>
     </mat-drawer>
-    <mat-drawer-content [style.height]="'calc(100vh - 60px)'"
-                        class="overflow-scroll">
-      <router-outlet></router-outlet>
+    <mat-drawer-content [style.height]="'calc(100dvh - 60px)'">
+      <ng-container class="overflow-scroll">
+        <router-outlet></router-outlet>
+      </ng-container>
     </mat-drawer-content>
   </mat-drawer-container>
 </div>
