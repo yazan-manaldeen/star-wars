@@ -12,6 +12,7 @@ export class AppComponent {
     {name: "Star Wars", path: "home"},
     {name: "Filme", path: "films"},
     {name: "Charaktere", path: "characters"},
-    {name: "Planeten", path: "planets"}
+    {name: "Planeten", path: "planets"},
+    {name: "Fahrzeuge", path: "vehicles"}
   ];
 }

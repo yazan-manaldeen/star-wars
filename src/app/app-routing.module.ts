@@ -7,6 +7,8 @@ import {CharactersComponent} from "@app/components/character/characters/characte
 import {CharacterDetailsComponent} from "@app/components/character/character-details/character-details.component";
 import {PlanetsComponent} from "@app/components/planets/planets/planets.component";
 import {PlanetDetailsComponent} from "@app/components/planets/planet-details/planet-details.component";
+import {VehiclesComponent} from "@app/components/vehicles/vehicles/vehicles.component";
+import {VehicleDetailsComponent} from "@app/components/vehicles/vehicle-details/vehicle-details.component";
 
 const routes: Routes = [
   {
@@ -43,6 +45,16 @@ const routes: Routes = [
     path: 'planet-details/:planetId',
     component: PlanetDetailsComponent,
     title: 'Planetdetails'
+  },
+  {
+    path: 'vehicles',
+    component: VehiclesComponent,
+    title: 'Fahrzeuge'
+  },
+  {
+    path: 'vehicle-details/:vehicleId',
+    component: VehicleDetailsComponent,
+    title: 'Fahrzeugdetails'
   },
 
 

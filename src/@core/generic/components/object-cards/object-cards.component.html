@@ -11,7 +11,7 @@
         <span @fadeIn @fadeOut class="my-4 text-base font-bold">{{ cardItem[config.titleProp] }}</span>
 
         <span *ngFor="let displayProp of config.displayProps" @fadeIn @fadeOut class="truncate">
-          {{ displayProp.label }} {{ cardItem[displayProp.propName] }}
+          {{ displayProp.label }} {{ cardItem[displayProp.propName] }} {{ displayProp.suffix || '' }}
         </span>
 
         <span @fadeIn @fadeOut class="my-4 font-bold">Mehr Informationen...</span>

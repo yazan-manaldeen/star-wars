@@ -2,7 +2,7 @@ export interface ObjectCardsConfig {
   title: string;
   imgFolder: string;
   titleProp: string;
-  displayProps: { label: string; propName: string }[];
+  displayProps: { label: string; propName: string, suffix?: string }[];
   routerLink: string;
 }
 
@@ -10,6 +10,7 @@ export interface AppObjectCardsConfig {
   film: ObjectCardsConfig;
   character: ObjectCardsConfig;
   planet: ObjectCardsConfig;
+  vehicle: ObjectCardsConfig;
 }
 
 export const objectCardsConfig: AppObjectCardsConfig = {
@@ -45,5 +46,16 @@ export const objectCardsConfig: AppObjectCardsConfig = {
       {label: 'Terrain:', propName: 'terrain'},
     ],
     routerLink: '/planet-details/'
+  },
+  vehicle: {
+    title: 'Fahrzeuge',
+    imgFolder: 'thumbnails',
+    titleProp: 'name',
+    displayProps: [
+      {label: 'Modell:', propName: 'model'},
+      {label: 'Produzenten:', propName: 'manufacturer'},
+      {label: 'Ladekapazität:', propName: 'cargo_capacity', suffix: 'Kg'},
+    ],
+    routerLink: '/vehicle-details/'
   }
 }

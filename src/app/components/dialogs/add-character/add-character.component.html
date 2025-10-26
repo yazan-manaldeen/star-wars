@@ -17,7 +17,7 @@
 
       <mat-form-field class="sm:w-[50%] w-full">
         <mat-label>Größe</mat-label>
-        <input formControlName="height" matInput placeholder="Größe eingeben" type="number">
+        <input formControlName="height" matInput placeholder="cm" type="number">
         <mat-error *ngIf="formGroup.get('height')?.hasError('required')">
           Größe is Required!
         </mat-error>
@@ -25,7 +25,7 @@
 
       <mat-form-field class="sm:w-[50%] w-full">
         <mat-label>Gweicht</mat-label>
-        <input formControlName="mass" matInput placeholder="Gweicht eingeben" type="number">
+        <input formControlName="mass" matInput placeholder="Kg" type="number">
         <mat-error *ngIf="formGroup.get('mass')?.hasError('required')">
           Gweicht is Required!
         </mat-error>

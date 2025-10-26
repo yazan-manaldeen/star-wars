@@ -1,6 +1,7 @@
 import {AddPlanetComponent} from "@app/components/dialogs/add-planet/add-planet.component";
 import {AddFilmComponent} from "@app/components/dialogs/add-film/add-film.component";
 import {AddCharacterComponent} from "@app/components/dialogs/add-character/add-character.component";
+import {AddVehicleComponent} from "@app/components/dialogs/add-vehicle/add-vehicle.component";
 
 export interface Relation {
   title: string;
@@ -26,6 +27,7 @@ export interface AppObjectDetailsConfig {
   film: ObjectDetailsConfig;
   character: ObjectDetailsConfig;
   planet: ObjectDetailsConfig;
+  vehicle: ObjectDetailsConfig;
 }
 
 const filmRelation = {
@@ -52,15 +54,17 @@ const planetRelation = {
   component: AddPlanetComponent
 };
 
-const starshipsRelation = {
-  title: 'Raumschiffe:',
-  dataPath: 'starships',
-  displayProp: 'name'
-};
-
 const vehiclesRelation = {
   title: 'Fahezeuge:',
   dataPath: 'vehicles',
+  displayProp: 'name',
+  routerLink: '/vehicle-details/',
+  component: AddVehicleComponent
+};
+
+const starshipsRelation = {
+  title: 'Raumschiffe:',
+  dataPath: 'starships',
   displayProp: 'name'
 };
 
@@ -114,6 +118,29 @@ export const objectDetailsConfig: AppObjectDetailsConfig = {
         ...characterRelation,
         title: 'Einwohner:',
         dataPath: 'residents'
+      },
+    ]
+  },
+  vehicle: {
+    title: 'Fahrzeugdetails',
+    firstTitleProp: 'name',
+    displayProps: [
+      {label: 'Modell:', propName: 'model'},
+      {label: 'Fahrzeugklasse:', propName: 'vehicle_class'},
+      {label: 'Produzenten:', propName: 'manufacturer'},
+      {label: 'Länge:', propName: 'length', suffix: 'm'},
+      {label: 'Crew:', propName: 'crew', suffix: 'Mann'},
+      {label: 'Passagiere:', propName: 'passengers', suffix: 'Mann'},
+      {label: 'Maximale atmosphärische Geschwindigkeit:', propName: 'max_atmosphering_speed'},
+      {label: 'Ladekapazität:', propName: 'cargo_capacity', suffix: 'Kg'},
+      {label: 'Konsumgüter:', propName: 'consumables'},
+    ],
+    imgFolder: 'thumbnails',
+    relations: [filmRelation,
+      {
+        ...characterRelation,
+        title: 'Piloten:',
+        dataPath: 'pilots'
       },
     ]
   }

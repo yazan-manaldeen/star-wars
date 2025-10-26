@@ -18,17 +18,20 @@ import {MatOption, MatSelect} from "@angular/material/select";
 import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from "@angular/material/datepicker";
 import {AppComponent} from "@app/app.component";
 import {HomeComponent} from "@app/components/home/home.component";
+import {ObjectCardsComponent} from "@core/generic/components/object-cards/object-cards.component";
+import {ObjectDetailsComponent} from "@core/generic/components/object-details/object-details.component";
 import {FilmsComponent} from "@app/components/films/films/films.component";
 import {FilmDetailsComponent} from "@app/components/films/film-details/film-details.component";
 import {CharactersComponent} from "@app/components/character/characters/characters.component";
 import {CharacterDetailsComponent} from "@app/components/character/character-details/character-details.component";
 import {PlanetsComponent} from "@app/components/planets/planets/planets.component";
 import {PlanetDetailsComponent} from "@app/components/planets/planet-details/planet-details.component";
-import {ObjectCardsComponent} from "@core/generic/components/object-cards/object-cards.component";
-import {ObjectDetailsComponent} from "@core/generic/components/object-details/object-details.component";
+import {VehiclesComponent} from "@app/components/vehicles/vehicles/vehicles.component";
+import {VehicleDetailsComponent} from "@app/components/vehicles/vehicle-details/vehicle-details.component";
 import {AddPlanetComponent} from "@app/components/dialogs/add-planet/add-planet.component";
 import {AddCharacterComponent} from "@app/components/dialogs/add-character/add-character.component";
 import {AddFilmComponent} from "@app/components/dialogs/add-film/add-film.component";
+import {AddVehicleComponent} from "@app/components/dialogs/add-vehicle/add-vehicle.component";
 import {AppRoutingModule} from "@app/app-routing.module";
 import {AppState} from "@app/store/app.state";
 import {TitleStrategyService} from "@core/services/title-strategy.service";
@@ -37,17 +40,20 @@ import {TitleStrategyService} from "@core/services/title-strategy.service";
   declarations: [
     AppComponent,
     HomeComponent,
+    ObjectCardsComponent,
+    ObjectDetailsComponent,
     FilmsComponent,
     FilmDetailsComponent,
     CharactersComponent,
     CharacterDetailsComponent,
     PlanetsComponent,
     PlanetDetailsComponent,
-    ObjectCardsComponent,
-    ObjectDetailsComponent,
-    AddPlanetComponent,
+    VehiclesComponent,
+    VehicleDetailsComponent,
+    AddFilmComponent,
     AddCharacterComponent,
-    AddFilmComponent
+    AddPlanetComponent,
+    AddVehicleComponent
   ],
   imports: [
     BrowserModule,
