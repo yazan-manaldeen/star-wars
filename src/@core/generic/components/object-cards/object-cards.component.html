@@ -1,7 +1,7 @@
 <div class="w-full h-[18rem] flex items-center justify-center">
   <span @fadeIn @fadeOut class="text-6xl font-bold">{{ config.title }}</span>
 </div>
-<div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mx-auto sm:mx-12">
+<div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mx-auto sm:mx-12">
   <div *ngFor="let cardItem of list;"
        class="flex flex-col m-auto w-full max-sm:max-w-[280px] max-w-[450px]">
     <a [routerLink]="config.routerLink + getObjectId(cardItem)">
