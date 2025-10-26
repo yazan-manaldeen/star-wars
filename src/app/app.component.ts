@@ -1,9 +1,11 @@
 import {Component} from '@angular/core';
+import {appAnimations} from "@core/animations/app.animations";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  animations: appAnimations
 })
 export class AppComponent {
   title = 'star-wars';
