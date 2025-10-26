@@ -3,6 +3,7 @@ import {AddFilmComponent} from "@app/components/dialogs/add-film/add-film.compon
 import {AddCharacterComponent} from "@app/components/dialogs/add-character/add-character.component";
 import {AddVehicleComponent} from "@app/components/dialogs/add-vehicle/add-vehicle.component";
 import {AddStarshipComponent} from "@app/components/dialogs/add-starship/add-starship.component";
+import {AddSpecieComponent} from "@app/components/dialogs/add-specie/add-specie.component";
 
 export interface Relation {
   title: string;
@@ -30,6 +31,7 @@ export interface AppObjectDetailsConfig {
   planet: ObjectDetailsConfig;
   vehicle: ObjectDetailsConfig;
   starship: ObjectDetailsConfig;
+  specie: ObjectDetailsConfig;
 }
 
 const filmRelation = {
@@ -72,6 +74,14 @@ const starshipsRelation = {
   component: AddStarshipComponent
 };
 
+const speciesRelation = {
+  title: 'Spezies:',
+  dataPath: 'species',
+  routerLink: '/specie-details/',
+  displayProp: 'name',
+  component: AddSpecieComponent
+};
+
 export const objectDetailsConfig: AppObjectDetailsConfig = {
   film: {
     title: 'Filmdetails',
@@ -85,7 +95,7 @@ export const objectDetailsConfig: AppObjectDetailsConfig = {
     ],
     descriptionProp: 'opening_crawl',
     imgFolder: 'thumbnails',
-    relations: [characterRelation, planetRelation, starshipsRelation, vehiclesRelation]
+    relations: [characterRelation, planetRelation, starshipsRelation, vehiclesRelation, speciesRelation]
   },
   character: {
     title: 'Charakterdetails',
@@ -101,7 +111,7 @@ export const objectDetailsConfig: AppObjectDetailsConfig = {
     ],
     imgFolder: 'thumbnails',
     homeworld: 'homeworld',
-    relations: [filmRelation, starshipsRelation, vehiclesRelation]
+    relations: [filmRelation, starshipsRelation, vehiclesRelation, speciesRelation]
   },
   planet: {
     title: 'Planetdetails',
@@ -133,8 +143,8 @@ export const objectDetailsConfig: AppObjectDetailsConfig = {
       {label: 'Fahrzeugklasse:', propName: 'vehicle_class'},
       {label: 'Produzenten:', propName: 'manufacturer'},
       {label: 'Länge:', propName: 'length', suffix: 'm'},
-      {label: 'Crew:', propName: 'crew', suffix: 'Mann'},
-      {label: 'Passagiere:', propName: 'passengers', suffix: 'Mann'},
+      {label: 'Crew:', propName: 'crew', suffix: 'Man'},
+      {label: 'Passagiere:', propName: 'passengers', suffix: 'Man'},
       {label: 'Maximale atmosphärische Geschwindigkeit:', propName: 'max_atmosphering_speed'},
       {label: 'Ladekapazität:', propName: 'cargo_capacity', suffix: 'Kg'},
       {label: 'Konsumgüter:', propName: 'consumables'},
@@ -158,8 +168,8 @@ export const objectDetailsConfig: AppObjectDetailsConfig = {
       {label: 'Produzenten:', propName: 'manufacturer'},
       {label: 'Kosten in Credits:', propName: 'cost_in_credits'},
       {label: 'Länge:', propName: 'length', suffix: 'm'},
-      {label: 'Crew:', propName: 'crew', suffix: 'Mann'},
-      {label: 'Passagiere:', propName: 'passengers', suffix: 'Mann'},
+      {label: 'Crew:', propName: 'crew', suffix: 'Man'},
+      {label: 'Passagiere:', propName: 'passengers', suffix: 'Man'},
       {label: 'Maximale atmosphärische Geschwindigkeit:', propName: 'max_atmosphering_speed'},
       {label: 'Hyperantriebsbewertung:', propName: 'hyperdrive_rating'},
       {label: 'MGLT:', propName: 'MGLT'},
@@ -175,5 +185,28 @@ export const objectDetailsConfig: AppObjectDetailsConfig = {
         dataPath: 'pilots'
       },
     ]
-  }
+  },
+  specie: {
+    title: 'Spezies Details',
+    firstTitleProp: 'name',
+    displayProps: [
+      {label: 'Klassifikation:', propName: 'classification'},
+      {label: 'Bezeichnung:', propName: 'designation'},
+      {label: 'Durchschnittsgröße:', propName: 'average_height', suffix: 'cm'},
+      {label: 'Durchschnittliche Lebensdauer:', propName: 'average_lifespan', suffix: 'Jahr'},
+      {label: 'Hautfarbe:', propName: 'skin_colors'},
+      {label: 'Haarfarbe:', propName: 'hair_colors'},
+      {label: 'Augenfarbe:', propName: 'eye_colors'},
+      {label: 'Sprache:', propName: 'language'}
+    ],
+    imgFolder: 'thumbnails',
+    homeworld: 'homeworld',
+    relations: [
+      filmRelation,
+      {
+        ...characterRelation,
+        dataPath: 'people'
+      }
+    ]
+  },
 };

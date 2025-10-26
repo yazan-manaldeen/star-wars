@@ -12,6 +12,7 @@ export interface AppObjectCardsConfig {
   planet: ObjectCardsConfig;
   vehicle: ObjectCardsConfig;
   starship: ObjectCardsConfig;
+  specie: ObjectCardsConfig;
 }
 
 export const objectCardsConfig: AppObjectCardsConfig = {
@@ -69,5 +70,16 @@ export const objectCardsConfig: AppObjectCardsConfig = {
       {label: 'Ladekapazität:', propName: 'cargo_capacity', suffix: 'Kg'},
     ],
     routerLink: '/starship-details/'
+  },
+  specie: {
+    title: 'Spezies',
+    imgFolder: 'thumbnails',
+    titleProp: 'name',
+    displayProps: [
+      {label: 'Klassifikation:', propName: 'classification'},
+      {label: 'Bezeichnung:', propName: 'designation'},
+      {label: 'Sprache:', propName: 'language'}
+    ],
+    routerLink: '/specie-details/'
   }
 }

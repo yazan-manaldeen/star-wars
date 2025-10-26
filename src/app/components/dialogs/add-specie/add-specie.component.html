@@ -1,0 +1,89 @@
+<div class="w-md max-sm:max-w-[300px] max-h-[90vh] p-6">
+  <div class="flex items-center justify-center">
+    <span class="text-base font-bold">Charakter hinzufügen</span>
+  </div>
+  <div class="my-8">
+    <form (ngSubmit)="formGroup.valid && onSubmit(formGroup.value)"
+          *ngIf="formGroup"
+          [formGroup]="formGroup">
+
+      <mat-form-field class="w-full">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput placeholder="Name eingeben">
+        <mat-error *ngIf="formGroup.get('name')?.hasError('required')">
+          Name is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
+        <mat-label>Klassifikation</mat-label>
+        <input formControlName="classification" matInput placeholder="Klassifikation eingeben">
+        <mat-error *ngIf="formGroup.get('classification')?.hasError('required')">
+          Klassifikation is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
+        <mat-label>Bezeichnung</mat-label>
+        <input formControlName="designation" matInput placeholder="Bezeichnung eingeben">
+        <mat-error *ngIf="formGroup.get('designation')?.hasError('required')">
+          Bezeichnung is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="sm:w-[50%] w-full">
+        <mat-label>Durchschnittsgröße</mat-label>
+        <input formControlName="average_height" matInput placeholder="cm" type="number">
+        <mat-error *ngIf="formGroup.get('average_height')?.hasError('required')">
+          Durchschnittsgröße is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="sm:w-[50%] w-full">
+        <mat-label>Durchschnittliche Lebensdauer</mat-label>
+        <input formControlName="average_lifespan" matInput placeholder="Jahr" type="number">
+        <mat-error *ngIf="formGroup.get('average_lifespan')?.hasError('required')">
+          Durchschnittliche Lebensdauer is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="sm:w-[50%] w-full">
+        <mat-label>Hautfarbe</mat-label>
+        <input formControlName="skin_colors" matInput placeholder="Hautfarbe mit Semikolon trennen">
+        <mat-error *ngIf="formGroup.get('skin_colors')?.hasError('required')">
+          Hautfarbe is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="sm:w-[50%] w-full">
+        <mat-label>Haarfarbe</mat-label>
+        <input formControlName="hair_colors" matInput placeholder="Haarfarbe mit Semikolon trennen">
+        <mat-error *ngIf="formGroup.get('hair_colors')?.hasError('required')">
+          Haarfarbe is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="sm:w-[50%] w-full">
+        <mat-label>Augenfarbe</mat-label>
+        <input formControlName="eye_colors" matInput placeholder="Augenfarbe mit Semikolon trennen">
+        <mat-error *ngIf="formGroup.get('eye_colors')?.hasError('required')">
+          Augenfarbe is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="sm:w-[50%] w-full">
+        <mat-label>Sprache</mat-label>
+        <input formControlName="language" matInput placeholder="Sprache eingeben">
+        <mat-error *ngIf="formGroup.get('language')?.hasError('required')">
+          Sprache is Required!
+        </mat-error>
+      </mat-form-field>
+
+      <div class="my-8 float-right float-bottom">
+        <button (click)="closeDialog()" class="mr-2" mat-raised-button>Abbrechen</button>
+        <button class="mr-2" color="primary" mat-raised-button type="submit">Hinzufügen</button>
+      </div>
+
+    </form>
+  </div>
+</div>

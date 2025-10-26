@@ -11,6 +11,8 @@ import {VehiclesComponent} from "@app/components/vehicles/vehicles/vehicles.comp
 import {VehicleDetailsComponent} from "@app/components/vehicles/vehicle-details/vehicle-details.component";
 import {StarshipsComponent} from "@app/components/starships/starships/starships.component";
 import {StarshipDetailsComponent} from "@app/components/starships/starship-details/starship-details.component";
+import {SpeciesComponent} from "@app/components/species/species/species.component";
+import {SpecieDetailsComponent} from "@app/components/species/specie-details/specie-details.component";
 
 const routes: Routes = [
   {
@@ -67,6 +69,16 @@ const routes: Routes = [
     path: 'starship-details/:starshipId',
     component: StarshipDetailsComponent,
     title: 'Raumschiffsdetails'
+  },
+  {
+    path: 'species',
+    component: SpeciesComponent,
+    title: 'Spezies'
+  },
+  {
+    path: 'specie-details/:specieId',
+    component: SpecieDetailsComponent,
+    title: 'Spezies'
   },
 
 

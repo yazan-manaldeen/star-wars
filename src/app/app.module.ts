@@ -30,11 +30,14 @@ import {VehiclesComponent} from "@app/components/vehicles/vehicles/vehicles.comp
 import {VehicleDetailsComponent} from "@app/components/vehicles/vehicle-details/vehicle-details.component";
 import {StarshipsComponent} from "@app/components/starships/starships/starships.component";
 import {StarshipDetailsComponent} from "@app/components/starships/starship-details/starship-details.component";
+import {SpeciesComponent} from "@app/components/species/species/species.component";
+import {SpecieDetailsComponent} from "@app/components/species/specie-details/specie-details.component";
 import {AddPlanetComponent} from "@app/components/dialogs/add-planet/add-planet.component";
 import {AddCharacterComponent} from "@app/components/dialogs/add-character/add-character.component";
 import {AddFilmComponent} from "@app/components/dialogs/add-film/add-film.component";
 import {AddVehicleComponent} from "@app/components/dialogs/add-vehicle/add-vehicle.component";
 import {AddStarshipComponent} from "@app/components/dialogs/add-starship/add-starship.component";
+import {AddSpecieComponent} from "@app/components/dialogs/add-specie/add-specie.component";
 import {AppRoutingModule} from "@app/app-routing.module";
 import {AppState} from "@app/store/app.state";
 import {TitleStrategyService} from "@core/services/title-strategy.service";
@@ -55,11 +58,14 @@ import {TitleStrategyService} from "@core/services/title-strategy.service";
     VehicleDetailsComponent,
     StarshipsComponent,
     StarshipDetailsComponent,
+    SpeciesComponent,
+    SpecieDetailsComponent,
     AddFilmComponent,
     AddCharacterComponent,
     AddPlanetComponent,
     AddVehicleComponent,
-    AddStarshipComponent
+    AddStarshipComponent,
+    AddSpecieComponent
   ],
   imports: [
     BrowserModule,

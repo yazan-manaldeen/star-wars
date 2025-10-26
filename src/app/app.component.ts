@@ -14,6 +14,7 @@ export class AppComponent {
     {name: "Charaktere", path: "characters"},
     {name: "Planeten", path: "planets"},
     {name: "Fahrzeuge", path: "vehicles"},
-    {name: "Raumschiffe", path: "starships"}
+    {name: "Raumschiffe", path: "starships"},
+    {name: "Spezies", path: "species"}
   ];
 }
