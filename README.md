@@ -95,8 +95,14 @@ src/
  │   ├── utils/
  │   └── app.module.ts
  ├── assets/
- │   ├── planets/
- │   └── thumbnails/
+ │   ├── thumbnails/
+ │   │   ├── films/
+ │   │   ├── people/
+ │   │   ├── plants/
+ │   │   ├── species/
+ │   │   ├── starships/
+ │   │   └── vehicles/
+ │   └── app-logo.png
  └── index.html
 ```
 
@@ -214,8 +220,14 @@ src/
  │   ├── utils/
  │   └── app.module.ts
  ├── assets/
- │   ├── planets/
- │   └── thumbnails/
+ │   ├── thumbnails/
+ │   │   ├── films/
+ │   │   ├── people/
+ │   │   ├── plants/
+ │   │   ├── species/
+ │   │   ├── starships/
+ │   │   └── vehicles/
+ │   └── app-logo.png
  └── index.html
 ```
 
