@@ -19,6 +19,7 @@ interface AppStateModel {
   pagination: PaginationModel;
   objectsArray: { [key: string]: any[] };
   selectedObject: any;
+  pendingChildren: boolean;
 }
 
 const defaults: AppStateModel = {
@@ -30,7 +31,8 @@ const defaults: AppStateModel = {
     per_page: 10
   },
   objectsArray: {},
-  selectedObject: null
+  selectedObject: null,
+  pendingChildren: true
 }
 
 @State({
@@ -51,6 +53,11 @@ export class AppState {
   @Selector()
   static pending(state: AppStateModel): boolean {
     return state.pending;
+  }
+
+  @Selector()
+  static pendingChildren(state: AppStateModel): boolean {
+    return state.pendingChildren;
   }
 
   @Selector()
@@ -129,6 +136,9 @@ export class AppState {
 
   @Action(GetDataToSelected)
   getDataToSelected({getState, setState}: StateContext<AppStateModel>, {propName}: GetDataToSelected) {
+    setState(produce(getState(), state => {
+      state.pendingChildren = true;
+    }));
     const selected = getState().selectedObject;
     const data = selected[propName];
     if (Array.isArray(data)) {
@@ -137,6 +147,7 @@ export class AppState {
         tap(res => {
           setState(produce(getState(), state => {
             state.selectedObject[propName] = res;
+            state.pendingChildren = false;
           }));
         })
       );
@@ -145,6 +156,7 @@ export class AppState {
       tap(res => {
         setState(produce(getState(), state => {
           state.selectedObject[propName] = res;
+          state.pendingChildren = false;
         }));
       })
     );
@@ -162,6 +174,7 @@ export class AppState {
   @Action(ResetSelectedObject)
   resetSelectedObject({setState, getState}: StateContext<AppStateModel>) {
     setState(produce(getState(), state => {
+      state.pendingChildren = defaults.pendingChildren;
       state.selectedObject = defaults.selectedObject;
     }));
   }

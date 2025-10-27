@@ -21,7 +21,10 @@ export class ObjectCardsComponent implements OnDestroy {
   config: any;
   list: Observable<any[]> = this._store.select(AppState.objectsArray);
   pagination$: Observable<PaginationModel> = this._store.select(AppState.pagination);
+  pending$: Observable<boolean> = this._store.select(AppState.pending);
+
   getObjectId = getObjectId;
+
   private _unsubscribeAll: Subject<any> = new Subject<any>();
 
   constructor(

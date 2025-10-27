@@ -5,6 +5,8 @@ import {appAnimations} from "@core/animations/app.animations";
 import {ResetSelectedObject} from "@app/store/app.action";
 import {getObjectId} from "@app/utils/app.utils";
 import {Location} from "@angular/common";
+import {Observable} from "rxjs";
+import {AppState} from "@app/store/app.state";
 
 @Component({
   selector: 'app-object-details',
@@ -17,6 +19,8 @@ export class ObjectDetailsComponent implements OnDestroy {
   @Input() objId: number;
   @Input() config: any = {};
   @Input() dataObj: any;
+
+  pendingChildren$: Observable<boolean> = this._store.select(AppState.pendingChildren);
 
   getObjectId = getObjectId;
 

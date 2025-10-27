@@ -40,17 +40,19 @@
         <span @fadeIn @fadeOut class="block text-lg font-bold mb-2 mt-12">{{ relation.title }}</span>
         <div
           class="grid gap-2 ml-4 items-center font-bold grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
-    <span *ngFor="let item of dataObj[relation.dataPath]">
+          <ng-container *ngIf="!(pendingChildren$ | async)">
+          <span *ngFor="let item of dataObj[relation.dataPath]">
           <a @fadeIn @fadeOut
              [routerLink]="relation.routerLink + getObjectId(item)">
             {{ item[relation.displayProp] }}
           </a>
-    </span>
-          <button (click)="openDialog(relation.component)" @fadeIn
-                  @fadeOut
-                  mat-icon-button>
-            <mat-icon>more_horiz</mat-icon>
-          </button>
+          </span>
+            <button (click)="openDialog(relation.component)" @fadeIn
+                    @fadeOut
+                    mat-icon-button>
+              <mat-icon>more_horiz</mat-icon>
+            </button>
+          </ng-container>
         </div>
       </ng-container>
     </div>

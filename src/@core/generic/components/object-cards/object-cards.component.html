@@ -1,38 +1,40 @@
 <div class="w-full h-[18rem] flex items-center justify-center">
   <span @fadeIn @fadeOut class="text-6xl font-bold">{{ config.title }}</span>
 </div>
-<div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mx-auto sm:mx-12">
-  <div *ngFor="let cardItem of list | async"
-       class="flex flex-col m-auto w-full max-sm:max-w-[280px] max-w-[450px]">
-    <a [routerLink]="config.routerLink + getObjectId(cardItem)">
-      <div class="h-56 min-w-[280px] overflow-hidden">
-        <img @fadeIn @fadeOut
-             [src]="config.images[getObjectId(cardItem)]"
-             alt="Thumbnail-{{getObjectId(cardItem)}}"
-             class="h-full w-full object-cover"/>
-      </div>
+<ng-container *ngIf="!(pending$ | async)">
+  <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mx-auto sm:mx-12">
+    <div *ngFor="let cardItem of list | async"
+         class="flex flex-col m-auto w-full max-sm:max-w-[280px] max-w-[450px]">
+      <a [routerLink]="config.routerLink + getObjectId(cardItem)">
+        <div class="h-56 min-w-[280px] overflow-hidden">
+          <img @fadeIn @fadeOut
+               [src]="config.images[getObjectId(cardItem)]"
+               alt="Thumbnail-{{getObjectId(cardItem)}}"
+               class="h-full w-full object-cover"/>
+        </div>
 
-      <div class="ml-4 flex flex-col">
-        <span @fadeIn @fadeOut class="my-4 text-base font-bold">{{ cardItem[config.titleProp] }}</span>
+        <div class="ml-4 flex flex-col">
+          <span @fadeIn @fadeOut class="my-4 text-base font-bold">{{ cardItem[config.titleProp] }}</span>
 
-        <span *ngFor="let displayProp of config.displayProps" @fadeIn @fadeOut class="truncate">
+          <span *ngFor="let displayProp of config.displayProps" @fadeIn @fadeOut class="truncate">
           {{ displayProp.label }} {{ cardItem[displayProp.propName] }} {{ displayProp.suffix || '' }}
         </span>
 
-        <span @fadeIn @fadeOut class="my-4 font-bold">Mehr Informationen...</span>
-      </div>
-    </a>
+          <span @fadeIn @fadeOut class="my-4 font-bold">Mehr Informationen...</span>
+        </div>
+      </a>
+    </div>
   </div>
-</div>
-<div *ngIf="(list | async).length" class="w-full flex items-center justify-center">
-  <mat-paginator
-    (page)="changePage($event)" @fadeIn
-    @fadeOut
-    [hidePageSize]="true"
-    [length]="(pagination$ | async)?.total || 0"
-    [pageIndex]="(pagination$ | async)?.page - 1 || 0"
-    [pageSize]="(pagination$ | async)?.per_page || 10"
-    [showFirstLastButtons]="true"
-    class="bg-[#fafafa]!">
-  </mat-paginator>
-</div>
+  <div class="w-full flex items-center justify-center">
+    <mat-paginator
+      (page)="changePage($event)" @fadeIn
+      @fadeOut
+      [hidePageSize]="true"
+      [length]="(pagination$ | async)?.total || 0"
+      [pageIndex]="(pagination$ | async)?.page - 1 || 0"
+      [pageSize]="(pagination$ | async)?.per_page || 10"
+      [showFirstLastButtons]="true"
+      class="bg-[#fafafa]!">
+    </mat-paginator>
+  </div>
+</ng-container>
