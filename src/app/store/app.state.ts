@@ -11,6 +11,7 @@ import {
 } from "@app/store/app.action";
 import {produce} from "immer";
 import {PaginationModel} from "@core/generic/models/pagination.model";
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 interface AppStateModel {
@@ -40,7 +41,11 @@ const defaults: AppStateModel = {
 @Injectable()
 export class AppState {
 
-  constructor(private _appService: AppService) {
+  constructor(
+    private _appService: AppService,
+    private _router: Router,
+    private _activatedRoute: ActivatedRoute
+  ) {
   }
 
   @Selector()
@@ -84,6 +89,15 @@ export class AppState {
           state.pagination.total_pages = Math.ceil(+res['count'] / page);
           state.pending = false;
         }));
+      }, error => {
+        this._router.navigate(
+          [],
+          {
+            relativeTo: this._activatedRoute,
+            queryParams: {page: 1},
+            queryParamsHandling: 'merge',
+          }
+        );
       })
     );
   }
@@ -101,6 +115,14 @@ export class AppState {
           state.pending = false;
         }));
         childrenArray.map(ele => dispatch(new GetDataToSelected(ele)));
+      }, error => {
+        this._router.navigate(
+          ['/home'],
+          {
+            queryParams: {},
+            queryParamsHandling: 'preserve',
+          }
+        );
       })
     );
   }

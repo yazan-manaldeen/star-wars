@@ -1,6 +1,15 @@
+import {
+  filmThumbnails,
+  peopleThumbnails,
+  planetThumbnails,
+  speciesThumbnails,
+  starshipsThumbnails,
+  vehiclesThumbnails
+} from "@app/config/thumbnails.config";
+
 export interface ObjectCardsConfig {
   title: string;
-  imgFolder: string;
+  images: any;
   titleProp: string;
   displayProps: { label: string; propName: string, suffix?: string }[];
   routerLink: string;
@@ -18,7 +27,7 @@ export interface AppObjectCardsConfig {
 export const objectCardsConfig: AppObjectCardsConfig = {
   films: {
     title: 'Filme',
-    imgFolder: 'thumbnails',
+    images: filmThumbnails,
     titleProp: 'title',
     displayProps: [
       {label: 'Director:', propName: 'director'},
@@ -29,7 +38,7 @@ export const objectCardsConfig: AppObjectCardsConfig = {
   },
   people: {
     title: 'Charaktere',
-    imgFolder: 'thumbnails',
+    images: peopleThumbnails,
     titleProp: 'name',
     displayProps: [
       {label: 'Augenfarbe:', propName: 'eye_color'},
@@ -40,7 +49,7 @@ export const objectCardsConfig: AppObjectCardsConfig = {
   },
   planets: {
     title: 'Planeten',
-    imgFolder: 'planets',
+    images: planetThumbnails,
     titleProp: 'name',
     displayProps: [
       {label: 'Rotationsperiode:', propName: 'rotation_period'},
@@ -51,7 +60,7 @@ export const objectCardsConfig: AppObjectCardsConfig = {
   },
   vehicles: {
     title: 'Fahrzeuge',
-    imgFolder: 'thumbnails',
+    images: vehiclesThumbnails,
     titleProp: 'name',
     displayProps: [
       {label: 'Modell:', propName: 'model'},
@@ -62,7 +71,7 @@ export const objectCardsConfig: AppObjectCardsConfig = {
   },
   starships: {
     title: 'Raumschiffe',
-    imgFolder: 'thumbnails',
+    images: starshipsThumbnails,
     titleProp: 'name',
     displayProps: [
       {label: 'Modell:', propName: 'model'},
@@ -73,7 +82,7 @@ export const objectCardsConfig: AppObjectCardsConfig = {
   },
   species: {
     title: 'Spezies',
-    imgFolder: 'thumbnails',
+    images: speciesThumbnails,
     titleProp: 'name',
     displayProps: [
       {label: 'Klassifikation:', propName: 'classification'},

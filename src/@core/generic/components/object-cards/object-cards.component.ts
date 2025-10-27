@@ -27,11 +27,8 @@ export class ObjectCardsComponent implements OnDestroy {
   constructor(
     private _store: Store,
     private _router: Router,
-    private _activatedRoute: ActivatedRoute,
+    private _activatedRoute: ActivatedRoute
   ) {
-    if (!+this._activatedRoute.queryParamMap['page']) {
-      this.changePage({pageIndex: 0, pageSize: 10, length: 0});
-    }
   }
 
   @Input() set type(type: string) {
@@ -39,6 +36,10 @@ export class ObjectCardsComponent implements OnDestroy {
     this._activatedRoute.queryParams.pipe(
       takeUntil(this._unsubscribeAll)
     ).subscribe((params: Params) => {
+      if (!+params['page']) {
+        this.changePage({pageIndex: 0, pageSize: 10, length: 0});
+        return;
+      }
       this._store.dispatch(new GetDataArray(type, +params['page']));
     });
   }

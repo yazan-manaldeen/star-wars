@@ -30,8 +30,10 @@
           </a>
       </span>
       </div>
-      <img @fadeIn @fadeOut alt="Thumbnail-{{objId % 6}}" class="mx-auto object-contain w-[400px]"
-           src="assets/{{config.imgFolder}}/thumbnail-{{objId % 6}}.png"/>
+      <div class="mx-auto h-56 w-[450px] max-sm:max-w-[280px] overflow-hidden">
+        <img @fadeIn @fadeOut [src]="config.images[objId]" alt="Thumbnail-{{objId}}"
+             class="h-full w-full object-cover"/>
+      </div>
     </div>
     <div class="mx-12 mb-12">
       <ng-container *ngFor="let relation of config.relations">

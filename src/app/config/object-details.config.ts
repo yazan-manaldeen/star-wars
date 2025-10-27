@@ -4,6 +4,14 @@ import {AddCharacterComponent} from "@app/components/dialogs/add-character/add-c
 import {AddVehicleComponent} from "@app/components/dialogs/add-vehicle/add-vehicle.component";
 import {AddStarshipComponent} from "@app/components/dialogs/add-starship/add-starship.component";
 import {AddSpecieComponent} from "@app/components/dialogs/add-specie/add-specie.component";
+import {
+  filmThumbnails,
+  peopleThumbnails,
+  planetThumbnails,
+  speciesThumbnails,
+  starshipsThumbnails,
+  vehiclesThumbnails
+} from "@app/config/thumbnails.config";
 
 export interface Relation {
   title: string;
@@ -21,7 +29,7 @@ export interface ObjectDetailsConfig {
   displayProps: { label: string; propName: string; suffix?: string; }[];
   descriptionProp?: string;
   homeworld?: string;
-  imgFolder?: string;
+  images: any;
   relations: Relation[];
 }
 
@@ -94,7 +102,7 @@ export const objectDetailsConfig: AppObjectDetailsConfig = {
       {label: 'Erscheinungsdatum:', propName: 'release_date'},
     ],
     descriptionProp: 'opening_crawl',
-    imgFolder: 'thumbnails',
+    images: filmThumbnails,
     relations: [characterRelation, planetRelation, starshipsRelation, vehiclesRelation, speciesRelation]
   },
   character: {
@@ -109,7 +117,7 @@ export const objectDetailsConfig: AppObjectDetailsConfig = {
       {label: 'Geburtsjahr:', propName: 'birth_year'},
       {label: 'Geschlecht:', propName: 'gender'},
     ],
-    imgFolder: 'thumbnails',
+    images: peopleThumbnails,
     homeworld: 'homeworld',
     relations: [filmRelation, starshipsRelation, vehiclesRelation, speciesRelation]
   },
@@ -126,7 +134,7 @@ export const objectDetailsConfig: AppObjectDetailsConfig = {
       {label: 'Rotationsperiode:', propName: 'rotation_period', suffix: 'Uhr'},
       {label: 'Umlaufzeit:', propName: 'orbital_period', suffix: 'Tag'},
     ],
-    imgFolder: 'planets',
+    images: planetThumbnails,
     relations: [filmRelation,
       {
         ...characterRelation,
@@ -149,7 +157,7 @@ export const objectDetailsConfig: AppObjectDetailsConfig = {
       {label: 'Ladekapazität:', propName: 'cargo_capacity', suffix: 'Kg'},
       {label: 'Konsumgüter:', propName: 'consumables'},
     ],
-    imgFolder: 'thumbnails',
+    images: vehiclesThumbnails,
     relations: [
       filmRelation,
       {
@@ -176,7 +184,7 @@ export const objectDetailsConfig: AppObjectDetailsConfig = {
       {label: 'Ladekapazität:', propName: 'cargo_capacity', suffix: 'Kg'},
       {label: 'Konsumgüter:', propName: 'consumables'}
     ],
-    imgFolder: 'thumbnails',
+    images: starshipsThumbnails,
     relations: [
       filmRelation,
       {
@@ -199,7 +207,7 @@ export const objectDetailsConfig: AppObjectDetailsConfig = {
       {label: 'Augenfarbe:', propName: 'eye_colors'},
       {label: 'Sprache:', propName: 'language'}
     ],
-    imgFolder: 'thumbnails',
+    images: speciesThumbnails,
     homeworld: 'homeworld',
     relations: [
       filmRelation,

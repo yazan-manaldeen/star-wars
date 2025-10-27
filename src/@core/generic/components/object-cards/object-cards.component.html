@@ -5,8 +5,12 @@
   <div *ngFor="let cardItem of list | async"
        class="flex flex-col m-auto w-full max-sm:max-w-[280px] max-w-[450px]">
     <a [routerLink]="config.routerLink + getObjectId(cardItem)">
-      <img @fadeIn @fadeOut alt="Thumbnail-{{getObjectId(cardItem)}}"
-           src="assets/{{config.imgFolder}}/thumbnail-{{getObjectId(cardItem) % 6}}.png"/>
+      <div class="h-56 min-w-[280px] overflow-hidden">
+        <img @fadeIn @fadeOut
+             [src]="config.images[getObjectId(cardItem)]"
+             alt="Thumbnail-{{getObjectId(cardItem)}}"
+             class="h-full w-full object-cover"/>
+      </div>
 
       <div class="ml-4 flex flex-col">
         <span @fadeIn @fadeOut class="my-4 text-base font-bold">{{ cardItem[config.titleProp] }}</span>
@@ -20,9 +24,10 @@
     </a>
   </div>
 </div>
-<div class="w-full flex items-center justify-center">
+<div *ngIf="(list | async).length" class="w-full flex items-center justify-center">
   <mat-paginator
-    (page)="changePage($event)"
+    (page)="changePage($event)" @fadeIn
+    @fadeOut
     [hidePageSize]="true"
     [length]="(pagination$ | async)?.total || 0"
     [pageIndex]="(pagination$ | async)?.page - 1 || 0"
